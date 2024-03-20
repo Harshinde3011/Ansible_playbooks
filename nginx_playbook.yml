@@ -1,0 +1,20 @@
+---
+- name: Install nginx and start nginx
+  hosts: webservers (u can also use “all”)
+  become: root (it will execute ansible playbook as root user)
+   
+  tasks:
+  - name: install nginx
+    apt:
+         name: nginx
+         state: present 
+               or
+    shell: apt install nginx
+
+  - name: start nginx
+     shell: systemclt start nginx
+              or 
+     apt:
+       service:
+           name: nginx
+           state: started 
